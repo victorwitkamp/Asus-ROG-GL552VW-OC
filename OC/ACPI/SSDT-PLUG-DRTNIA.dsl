@@ -1,34 +1,18 @@
 /*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20200717 (32-bit version)
- * Copyright (c) 2000 - 2020 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of SSDT-PLUG-DRTNIA.aml, Tue Dec 22 00:50:22 2020
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x000002B5 (693)
- *     Revision         0x02
- *     Checksum         0xDD
- *     OEM ID           "DRTNIA"
- *     OEM Table ID     "CpuPlug"
- *     OEM Revision     0x00003000 (12288)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20190509 (538510601)
+ * Adds plugin-type property to the furst thread of your CPU, this is just a mirror
+ * from OpenCorePkg 
  */
 DefinitionBlock ("", "SSDT", 2, "DRTNIA", "CpuPlug", 0x00003000)
 {
-    External (_PR_.C000, ProcessorObj)
-    External (_PR_.CPU0, ProcessorObj)
-    External (_PR_.P000, ProcessorObj)
-    External (_PR_.PR00, ProcessorObj)
     External (_SB_.CPU0, ProcessorObj)
+    External (_PR_.CPU0, ProcessorObj)
+    External (_PR_.CP00, ProcessorObj)
+    External (_PR_.C000, ProcessorObj)
+    External (_PR_.P000, ProcessorObj)
     External (_SB_.PR00, ProcessorObj)
+    External (_PR_.PR00, ProcessorObj)
     External (_SB_.SCK0.CP00, ProcessorObj)
     External (_SB_.SCK0.PR00, ProcessorObj)
-
     Method (PMPM, 4, NotSerialized)
     {
         If ((Arg2 == Zero))
@@ -158,4 +142,3 @@ DefinitionBlock ("", "SSDT", 2, "DRTNIA", "CpuPlug", 0x00003000)
         }
     }
 }
-

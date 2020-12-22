@@ -1,22 +1,10 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20200717 (32-bit version)
- * Copyright (c) 2000 - 2020 Intel Corporation
+/* Purpose of this SSDT is to:
  * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of SSDT-EC-USBX-LAPTOP.aml, Tue Dec 22 00:50:22 2020
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x0000014F (335)
- *     Revision         0x02
- *     Checksum         0x62
- *     OEM ID           "DRTNIA"
- *     OEM Table ID     "SsdtEC"
- *     OEM Revision     0x00001000 (4096)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20190509 (538510601)
+ *   - Find references of devices named EC__
+ *   - If none are found, only then create a new EC
+ * 
+ * Reason for this is to avoid having multiple EC__ in devices
+ * like Lenovo who already use the name EC__
  */
 DefinitionBlock ("", "SSDT", 2, "DRTNIA", "SsdtEC", 0x00001000)
 {
@@ -72,4 +60,3 @@ DefinitionBlock ("", "SSDT", 2, "DRTNIA", "SsdtEC", 0x00001000)
         }
     }
 }
-
